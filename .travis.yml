@@ -6,6 +6,6 @@ before_install:
     - pip install pytest-cov
     - pip install coveralls
 script:
-   - pytest --cov=python_util_for_plsql
+   - pytest --cov=plsql_util
 after_success:
   - coveralls
