@@ -1,19 +1,17 @@
 import plsql_util as putil
-from itertools import islice
 import os
 
 
 def test_walk_pkg_gen():
     dir_test = 'test'
     location = os.path.join(os.path.abspath(__file__), dir_test)
-    for item in islice(putil.walk_pkg_gen(location), 2):
-        _, ext = os.path.splitext(item)
+    for _, cur_file in putil.walk_pkg_gen(location):
+        _, ext = os.path.splitext(cur_file)
         assert ext != '.txt'
 
 
 def test_walk_root_gen():
     dir_test = 'test'
     location = os.path.join(os.path.abspath(__file__), dir_test)
-    for item in islice(putil.walk_pkg_gen(location), 2):
-        root, _ = os.path.splitext(item)
+    for root, _ in putil.walk_pkg_gen(location):
         assert root == location
