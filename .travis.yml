@@ -7,5 +7,6 @@ before_install:
     - pip install coveralls
 script:
    - pytest --cov=plsql_util
+   - coverage report --fail-under=80
 after_success:
   - coveralls
