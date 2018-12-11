@@ -11,12 +11,12 @@ test_filenames = ['test_pkg.pks', 'test_pkg.pkb', 'exclude.txt']
 
 
 @pytest.fixture()
-def setup_test_files(tmp_path):
-    dir_test = tmp_path / "dir_test"
+def setup_test_files(tmpdir):
+    dir_test = tmpdir / "dir_test"
     dir_test.mkdir()
     for name in test_filenames:
         file_name = dir_test / name
-        file_name.write_text(u"content")
+        file_name.write(str("content"))
     yield dir_test
     shutil.rmtree(dir_test)
 
