@@ -4,9 +4,6 @@ import pytest
 import shutil
 
 
-cur_dir = os.path.dirname(os.path.realpath(__file__))
-dir_test = 'test'
-location = os.path.join(cur_dir, dir_test)
 test_filenames = ['test_pkg.pks', 'test_pkg.pkb', 'exclude.txt']
 
 
