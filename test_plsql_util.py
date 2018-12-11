@@ -1,6 +1,7 @@
 import plsql_util as putil
 import os
 import pytest
+import shutil
 
 
 cur_dir = os.path.dirname(os.path.realpath(__file__))
@@ -9,40 +10,39 @@ location = os.path.join(cur_dir, dir_test)
 test_filenames = ['test_pkg.pks', 'test_pkg.pkb', 'exclude.txt']
 
 
-@pytest.fixture
-def setup_test_files():
-    os.makedirs(location)
+@pytest.fixture()
+def setup_test_files(tmp_path):
+    dir_test = tmp_path / "dir_test"
+    dir_test.mkdir()
     for name in test_filenames:
-        with open(os.path.join(location, name), 'w+'):
-            pass
-    yield
-    for name in test_filenames:
-        os.remove(os.path.join(location, name))
-    os.rmdir(location)
+        file_name = dir_test / name
+        file_name.write_text(u"content")
+    yield dir_test
+    shutil.rmtree(dir_test)
 
 
 def test_walk_pkg_gen(setup_test_files):
-    for _, cur_file in putil.walk_pkg_gen(location):
+    for _, cur_file in putil.walk_pkg_gen(setup_test_files):
         _, ext = os.path.splitext(cur_file)
         assert ext != '.txt'
 
 
 def test_walk_pkg_gen_size(setup_test_files):
-    assert len(list(putil.walk_pkg_gen(location))) == 2
+    assert len(list(putil.walk_pkg_gen(setup_test_files))) == 2
 
 
 def test_walk_pkg_gen_ext(setup_test_files):
-    for _, cur_file in putil.walk_pkg_gen(location):
+    for _, cur_file in putil.walk_pkg_gen(setup_test_files):
         _, ext = os.path.splitext(cur_file)
         assert ext in ['.pks', '.pkb']
 
 
 def test_walk_pkg_gen_file_name(setup_test_files):
-    for _, cur_file in putil.walk_pkg_gen(location):
+    for _, cur_file in putil.walk_pkg_gen(setup_test_files):
         name, _ = os.path.splitext(cur_file)
         assert name == 'test_pkg'
 
 
 def test_walk_root_gen(setup_test_files):
-    for root, _ in putil.walk_pkg_gen(location):
-        assert root == location
+    for root, _ in putil.walk_pkg_gen(setup_test_files):
+        assert root == str(setup_test_files)
