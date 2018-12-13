@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="python_util_for_plsql",
-    version="0.0.1",
+    version="0.0.2",
     author="Danny Walsh",
     author_email="author@example.com",
     description="Python util function for plsql",
