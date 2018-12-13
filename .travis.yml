@@ -2,13 +2,13 @@ language: python
 python:
 - '3.6'
 before_install:
-- pip install -U pip
-- python setup.py install
+- "pip install -U pip"
+- "python setup.py install"
 - pip install pytest
 - pip install pytest-cov
 - pip install coveralls
 script:
-- pytest --cov=plsql_util
+- pytest --cov=python_util_for_plsql
 - coverage report --fail-under=80
 after_success:
 - coveralls
