@@ -2,8 +2,8 @@ language: python
 python:
 - '3.6'
 before_install:
-- "pip install -U pip"
-- "python setup.py install"
+- pip install -U pip
+- python setup.py install
 - pip install pytest
 - pip install pytest-cov
 - pip install coveralls
@@ -14,8 +14,8 @@ after_success:
 - coveralls
 deploy:
   provider: pypi
-  user: "walshdanny700"
+  user: walshdanny700
   password:
-    secure: j9zNbUwM8JUNsiKjjewU4z39O6nOJVgWCqMa+ELBfD2TBO7N1rXNliFhaewPYfwRwD6xxM/y1kKx84xnJ+SGhCnoNd0/FHNiIDDPfYpjjHCiGLJ1U/to8/+jollvB21lLj1cuGpErjel5VIB035G3Sxy5YLIJ5k1Zyx2tgJC/9xJmIdRGR+iV9Jyv9APIrEMxJZkURjcMkfYFBSAjkPKwBcXtb1Rfx+G+SAxzFDljF0iMGCObf60tGLjpotWgzngtUKFjjiRSY/IboKwT4wfhA+xxtm9iG/MAb7SAg/OCnLzEAwaQfDHgxyUV4GAQIgYwrD9weVjsQwKqEqMTEEiOQKkcEgQNaWST1c+5OVr5c1WrwbSwjvUmsLZmMxx84O+HUCWrN/Xm7mzMBBruSntkl8dVlPOj3Oqm2hHyVjXBNQc7uw+x8bUZs3FPvEeA0ttZ9sjfjO4SDe6t7a6t7ta7zh7DTGJVJy8m5sE1XxbJK831jrmVAB57ikeLePHBuVOl23A+zye8a3p/8v89Z8DR4NC8MWrOZOrcIIHZfgQ0k7d/0tWEF6mnsEuMe7JB/gLSX81oRtmfRb7fDePvOjja7yzolUNomrAj6mWXr/ZeBTteRQ0Iy7KFtN2Ju0VNRIWGjS4wnu21QCNqlFISDJLtx0vo7xHIFPnK9gXmOssCr0=
-on:
-    tags:  true
+      secure: tx1f6633cETdfeMbfAVU8tBxqKV75/hHubCq/SA7xTjopDjxg7G6fxatuO1h0ABJZfm4kC8uOJAh14BiRaV7uVJD+iigIrpbENNvPSnlO/2TtlHaQo4MjrGO1BVgqiCUs1gQTPAP0YPOiaYpJdx831OcyQs2b43QwCmw1Rgyt9ZoQIq2v8LevMv56oUHKTadSVcoUK/WEt3z8Zs8sJJ0HO9ZEhBMqRDXFhJKPVkhDSBqmqZUrYD/vVANU6y0zFfZmHV8lfD5/dzHbhWXjf7PqLAZirREFFdwbu40lTBAFTvHwwqznunL64Ew0aeSNYVcFRo0fIP5ntExUMl36v+uQm9xCaCQSEmlg1TpQmaDZKpTo5oV7gd+VFHmMCJNmyZGjpAQQnsyxHvfEoc2IW20Zv4DOZpNjAIYcdnODM12iLHH7PSlFQAlYmNfmujU7jNnNO6QL1x9wc8Ok50rwxxuS8DP/1ca+tdlQI43i0i7yKHW0DEAR/TbvEQhHkAr/HVwlrYOi7LnImFaW+OEgV6UPPRIu4qAvVQBGIcKCuGsbgOmLBSOhUMzyYrUjP1lisCduS0TZArky0h1MP53e4u4XpyZhqxNw+IlMK/88L8jCOOJY0eNL1gxRYQKitLOGk2vZT63x34HJA0qiw0qOu4dyy4nMfwuVCe2eGdI1KoB7oU=
+true:
+  tags: true
