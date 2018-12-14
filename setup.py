@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="python_util_for_plsql",
-    version="0.0.2",
+    version="0.0.3",
     author="Danny Walsh",
     author_email="author@example.com",
     description="Python util function for plsql",
@@ -14,7 +14,7 @@ setuptools.setup(
     url="https://github.com/walshdanny700/python_util_for_plsql",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
