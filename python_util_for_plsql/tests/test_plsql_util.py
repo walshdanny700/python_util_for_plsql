@@ -15,7 +15,10 @@ def setup_test_files(tmpdir):
         file_name = dir_test / name
         file_name.write(str("content"))
     yield dir_test
-    shutil.rmtree(dir_test, ignore_errors=True)
+    try:
+        shutil.rmtree(dir_test, ignore_errors=True)
+    except OSError as e:  # if failed, report it back to the user ##
+        print("Error: %s - %s." % (e.filename, e.strerror))
 
 
 def test_walk_pkg_gen(setup_test_files):
