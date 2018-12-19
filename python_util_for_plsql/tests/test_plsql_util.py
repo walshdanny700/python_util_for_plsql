@@ -15,7 +15,7 @@ def setup_test_files(tmpdir):
         file_name = dir_test / name
         file_name.write(str("content"))
     yield dir_test
-    shutil.rmtree(dir_test)
+    shutil.rmtree(dir_test, ignore_errors=True)
 
 
 def test_walk_pkg_gen(setup_test_files):
