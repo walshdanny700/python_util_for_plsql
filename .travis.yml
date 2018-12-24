@@ -16,6 +16,9 @@ script:
 - coverage report --fail-under=80
 after_success:
 - coveralls
+stages:
+- test
+- deploy
 jobs:
     include:
         - stage: deploy
