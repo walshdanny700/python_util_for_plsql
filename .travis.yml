@@ -1,24 +1,27 @@
 language: python
-sudo: false
-cache: pip
-python:
-  - "3.4"
-  - "3.5"
-  - "3.6"
-install:
-- pip install -U pip
-- python setup.py install
-- pip install pytest
-- pip install pytest-cov
-- pip install coveralls
-script:
-- pytest --cov=python_util_for_plsql
-- coverage report --fail-under=80
-after_success:
-- coveralls
+
 stages:
-- test
-- deploy
+    - test
+    - deploy
+
+before_install:
+    - python --version
+    - pip --version
+
+install:
+    - pip install -U pip
+    - python setup.py install
+    - pip install pytest
+    - pip install pytest-cov
+    - pip install coveralls
+
+script:
+    - pytest --cov=python_util_for_plsql
+    - coverage report --fail-under=80
+
+after_success:
+    - coveralls
+
 jobs:
     include:
         - python: 3.4
