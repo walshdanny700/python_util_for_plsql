@@ -14,9 +14,9 @@ def setup_test_files(tmpdir):
     for name in test_filenames:
         file_name = dir_test / name
         file_name.write(str("content"))
-    yield dir_test
+    yield str(dir_test)
     try:
-        shutil.rmtree(dir_test, ignore_errors=True)
+        shutil.rmtree(str(dir_test))
     except OSError as e:  # if failed, report it back to the user ##
         print("Error: %s - %s." % (e.filename, e.strerror))
 
