@@ -21,23 +21,31 @@ stages:
 - deploy
 jobs:
     include:
+        - python: 3.4
+        - python: 3.5
+        - python: 3.6
         - stage: test
-            install:
+          before_install: true
+          install:
                 - pip install -U pip
                 - python setup.py install
                 - pip install pytest
                 - pip install pytest-cov
                 - pip install coveralls
+            before_script: true
             script:
                 - pytest --cov=python_util_for_plsql
                 - coverage report --fail-under=80
             after_success:
                 - coveralls
         - stage: deploy
-            python: 3.6
-            install: skip  # no tests, no depedencies needed
-            script: skip  # we're not running tests
-            deploy:
+          python: 3.6
+          before_install: true
+          install: true
+          before_script: true
+          script: true
+          after_success: true
+          deploy:
                 provider: pypi
                 user: walshdanny700
                 password:
