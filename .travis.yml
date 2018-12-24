@@ -1,4 +1,6 @@
 language: python
+sudo: false
+cache: pip
 python:
   - "3.4"
   - "3.5"
@@ -14,10 +16,16 @@ script:
 - coverage report --fail-under=80
 after_success:
 - coveralls
-deploy:
-  provider: pypi
-  user: walshdanny700
-  password:
-    secure: cZrqhSuzx+eRmtfNbpVEDz7RxOdtSxb9CFDFjJ890FSX6LDH+j3r7tojJ6qPClM6hqWFqPTpKDC1lzEsXXJua/okoKHN4akLT+LU/n564IbdaQUNkiDiGE+VKmb5vMq342uyRKY7ZonF/LEBf0Xnis0stQtpEZNupS+R/hN/mGa/dpCVze2GtUMuL19Zy//brihTTPUrwxLWiVxS822O4nPhcOnHUmu81RF5ei8Q97LLsorjGXz7vEwh62B8GMK9l1/TbWYwx6EVJgI1QTc+0xdEwGrxJC+q52qD6k3+pp9A2N40lhj6TEpHjsvv58/TK1vANaR9hSKhlUq+6/XbS9kjgXpbE/D1/bi6lBWEGBlS75clMuHXhuokZlQcOMW1q7dM1gaWhs1q/QAKOh/iNo4qF5TYG5XO6bVI83xRfapc14GIeyiuQP0oRPXvLQoI+Z/55Fj9Ler2o0SElG/3KWjmovA0G1dClEnbScr2gb/Eqnl8qbJX1fCMwF0ZFHs5chjQxBD/6q0r7bZZCNBbYUeDF4vXGupG2Y8sCFxX2BMSOrecjcvHoqdt15cSoey7Mqx2H8gQOW7Ir32EQg1LtFdQNY+N8SvrViIqVsrButU22VdWk/bTq+dXPMLIDV1BWBkUwhc3EF+P78V1kAxKe1ygk30ExtNerkaLmMNOAAM=
-skip_existing: true
-skip_cleanup: true
+jobs:
+    include:
+        - stage: deploy
+      python: 3.6
+      install: skip  # no tests, no depedencies needed
+      script: skip  # we're not running tests
+      deploy:
+          provider: pypi
+          user: walshdanny700
+          password:
+              secure: cZrqhSuzx+eRmtfNbpVEDz7RxOdtSxb9CFDFjJ890FSX6LDH+j3r7tojJ6qPClM6hqWFqPTpKDC1lzEsXXJua/okoKHN4akLT+LU/n564IbdaQUNkiDiGE+VKmb5vMq342uyRKY7ZonF/LEBf0Xnis0stQtpEZNupS+R/hN/mGa/dpCVze2GtUMuL19Zy//brihTTPUrwxLWiVxS822O4nPhcOnHUmu81RF5ei8Q97LLsorjGXz7vEwh62B8GMK9l1/TbWYwx6EVJgI1QTc+0xdEwGrxJC+q52qD6k3+pp9A2N40lhj6TEpHjsvv58/TK1vANaR9hSKhlUq+6/XbS9kjgXpbE/D1/bi6lBWEGBlS75clMuHXhuokZlQcOMW1q7dM1gaWhs1q/QAKOh/iNo4qF5TYG5XO6bVI83xRfapc14GIeyiuQP0oRPXvLQoI+Z/55Fj9Ler2o0SElG/3KWjmovA0G1dClEnbScr2gb/Eqnl8qbJX1fCMwF0ZFHs5chjQxBD/6q0r7bZZCNBbYUeDF4vXGupG2Y8sCFxX2BMSOrecjcvHoqdt15cSoey7Mqx2H8gQOW7Ir32EQg1LtFdQNY+N8SvrViIqVsrButU22VdWk/bTq+dXPMLIDV1BWBkUwhc3EF+P78V1kAxKe1ygk30ExtNerkaLmMNOAAM=
+            on:
+                tags: true
