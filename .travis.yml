@@ -5,31 +5,22 @@ python:
     - '3.5'
     - '3.6'
 
-stages:
-    - test
-    - name: deploy
-      if: branch = master
+before_install:
+    - pip install -U pip
+    - python setup.py install
+    - pip install pytest
+    - pip install pytest-cov
+    - pip install coveralls
+script:
+    - pytest --cov=python_util_for_plsql
+    - coverage report --fail-under=80
+after_success:
+    - coveralls
 
 jobs:
     include:
-        - stage: test
-          install:
-                - pip install -U pip
-                - python setup.py install
-                - pip install pytest
-                - pip install pytest-cov
-                - pip install coveralls
-          script:
-                - pytest --cov=python_util_for_plsql
-                - coverage report --fail-under=80
-          after_success:
-                - coveralls
         - stage: deploy
-          before_install: true
-          install: true
-          before_script: true
-          script: true
-          after_success: true
+          python: 3.6
           deploy:
                 provider: pypi
                 user: walshdanny700
