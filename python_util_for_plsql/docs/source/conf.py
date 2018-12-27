@@ -24,9 +24,9 @@ copyright = '2018, Danny Walsh'
 author = 'Danny Walsh'
 
 # The short X.Y version
-version = ''
+version = '0.0.1'
 # The full version, including alpha/beta/rc tags
-release = '1'
+release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
