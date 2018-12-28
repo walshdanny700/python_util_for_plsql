@@ -11,15 +11,18 @@ before_install:
     - pip install pytest
     - pip install pytest-cov
     - pip install coveralls
+
 script:
     - pytest --cov=plsqlutil
     - coverage report --fail-under=80
+
 after_success:
     - coveralls
 
 jobs:
     include:
         - stage: deploy
+          os: linux
           python: 3.6
           deploy:
                 provider: pypi

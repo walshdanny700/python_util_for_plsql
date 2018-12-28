@@ -40,12 +40,12 @@ This project is licensed under the MIT License
     :scale: 100%
     :target: https://readthedocs.org/projects/pip/badge/
 
-.. |pypi| image:: https://badge.fury.io/py/python-util-for-plsql.svg
+.. |pypi| image:: https://badge.fury.io/py/plsqlutil.svg
     :alt: Documentation Status
     :scale: 100%
-    :target: https://badge.fury.io/py/python-util-for-plsql
+    :target: https://badge.fury.io/py/plsqlutil
 
-.. |version| image:: https://img.shields.io/pypi/pyversions/python-util-for-plsql.svg?style=flat-square
+.. |version| image:: https://img.shields.io/pypi/pyversions/plsqlutil.svg
     :alt: Documentation Status
     :scale: 100%
-    :target: https://pypi.python.org/pypi/python-util-for-plsql
+    :target: https://pypi.python.org/pypi/plsqlutil
