@@ -1,6 +1,6 @@
 Python_util_for_plsql
 =========================
-|build-status| |coverage| |docs| |pypi|
+|build-status| |coverage| |docs| |pypi| |version|
 
 A utility module for working with PL/SQL
 
@@ -39,3 +39,8 @@ This project is licensed under the MIT License
     :alt: Documentation Status
     :scale: 100%
     :target: https://badge.fury.io/py/python-util-for-plsql
+
+.. |version| image:: https://img.shields.io/pypi/pyversions/python-util-for-plsql.svg?style=flat-square
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://pypi.python.org/pypi/python-util-for-plsql
