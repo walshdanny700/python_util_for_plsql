@@ -12,7 +12,7 @@ before_install:
     - pip install pytest-cov
     - pip install coveralls
 script:
-    - pytest --cov=python_util_for_plsql
+    - pytest --cov=plsqlutil
     - coverage report --fail-under=80
 after_success:
     - coveralls
