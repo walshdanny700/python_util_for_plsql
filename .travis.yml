@@ -5,11 +5,6 @@ python:
     - '3.5'
     - '3.6'
 
-os:
-    - windows
-    - linux
-    - osx
-
 before_install:
     - pip install -U pip
     - python setup.py install
