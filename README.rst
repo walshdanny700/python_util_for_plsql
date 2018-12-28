@@ -1,4 +1,4 @@
-Python_util_for_plsql
+plsqlutil
 =========================
 |build-status| |coverage| |docs| |pypi| |version|
 
@@ -15,6 +15,11 @@ Requires Python 3.4 or higher
 Installing
 ================
 `pip install python-util-for-plsql`
+
+Usage
+================
+
+
 
 License
 ================

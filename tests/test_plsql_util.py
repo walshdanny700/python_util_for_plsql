@@ -1,4 +1,4 @@
-from python_util_for_plsql import plsql_util as putil
+from plsqlutil import plsql_util as putil
 import os
 import pytest
 import shutil
