@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/walshdanny700/python_util_for_plsql.svg?branch=master)](https://travis-ci.com/walshdanny700/python_util_for_plsql)[![Coverage Status](https://coveralls.io/repos/github/walshdanny700/python_util_for_plsql/badge.svg?branch=master)](https://coveralls.io/github/walshdanny700/python_util_for_plsql?branch=master)[![PyPI version](https://badge.fury.io/py/python-util-for-plsql.svg)](https://badge.fury.io/py/python-util-for-plsql)[![Pyversions](https://img.shields.io/pypi/pyversions/python-util-for-plsql.svg)](https://pypi.python.org/pypi/python-util-for-plsql)[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://readthedocs.org/projects/pip/badge/)
-
 Python_util_for_plsql
 =========================
-A utility module for working with PL/plsql
+|build-status| |coverage| |docs| |pypi|
+
+A utility module for working with PL/SQL
 
 Getting Started
 ================
@@ -19,3 +19,23 @@ Installing
 License
 ================
 This project is licensed under the MIT License
+
+.. |build-status| image:: https://travis-ci.com/walshdanny700/python_util_for_plsql.svg?branch=master
+    :alt: build status
+    :scale: 100%
+    :target: https://travis-ci.com/walshdanny700/python_util_for_plsql
+
+.. |coverage| image:: https://coveralls.io/repos/github/walshdanny700/python_util_for_plsql/badge.svg?branch=master
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://coveralls.io/github/walshdanny700/python_util_for_plsql?branch=master
+
+.. |docs| image:: https://readthedocs.org/projects/pip/badge/?version=latest
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://readthedocs.org/projects/pip/badge/
+
+.. |pypi| image:: https://badge.fury.io/py/python-util-for-plsql.svg
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://badge.fury.io/py/python-util-for-plsql
