@@ -14,18 +14,20 @@ Requires Python 3.4 or higher
 
 Installing
 ================
-`pip install plsqlutil`
+.. code-block:: python
+    pip install plsqlutil
 
 Usage
 ================
 The following will import the function walk_pkg_gen
 
-`from plsqlutil.plsql_util import walk_pkg_gen
+.. code-block:: python
+    from plsqlutil.plsql_util import walk_pkg_gen
 
-directory = '.'
-for path_string, filename in walk_pkg_gen(directory)
-    # use filename and path string
-`
+    directory = '.'
+    for path_string, filename in walk_pkg_gen(directory)
+        # use filename and path string
+
 
 License
 ================
