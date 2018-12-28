@@ -20,7 +20,9 @@ Installing
 
 Usage
 ================
-The following will import the function walk_pkg_gen
+The function walk_pkg_gen is a generator that yields the path and filename of any file
+that has the extensions pkb(package body) or pks(package specification).
+The following example is how to use walk_pkg_gen
 
 .. code:: python
 
