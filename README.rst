@@ -15,6 +15,7 @@ Requires Python 3.4 or higher
 Installing
 ================
 .. code:: python
+
     pip install plsqlutil
 
 Usage
@@ -22,6 +23,7 @@ Usage
 The following will import the function walk_pkg_gen
 
 .. code:: python
+
     from plsqlutil.plsql_util import walk_pkg_gen
 
     directory = '.'
