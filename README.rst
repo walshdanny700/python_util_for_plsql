@@ -14,18 +14,24 @@ Requires Python 3.4 or higher
 
 Installing
 ================
-`pip install plsqlutil`
+.. code:: python
+
+    pip install plsqlutil
 
 Usage
 ================
-The following will import the function walk_pkg_gen
+The function walk_pkg_gen is a generator that yields the path and filename of any file
+that has the extensions pkb(package body) or pks(package specification).
+The following example is how to use walk_pkg_gen
 
-`from plsqlutil.plsql_util import walk_pkg_gen
+.. code:: python
 
-directory = '.'
-for path_string, filename in walk_pkg_gen(directory)
-    # use filename and path string
-`
+    from plsqlutil.plsql_util import walk_pkg_gen
+
+    directory = '.'
+    for path_string, filename in walk_pkg_gen(directory)
+        # use filename and path string
+
 
 License
 ================
