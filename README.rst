@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 Prerequisites
 ================
-Requires Python 3.4 or higher
+Requires Python 3.6 or higher
 
 Installing
 ================
