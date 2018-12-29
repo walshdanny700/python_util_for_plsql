@@ -18,6 +18,27 @@ def setup_test_files(tmpdir):
     shutil.rmtree(str(dir_test))
 
 
+@pytest.fixture()
+def setup_missing_slash(tmpdir):
+    dir_test = tmpdir / "dir_test"
+    dir_test.mkdir()
+    spec = dir_test / test_filenames[0]
+    spec.write(str("content"))
+    body = dir_test / test_filenames[1]
+    body.write(str("content \n /"))
+    yield pathlib.Path(dir_test)
+    shutil.rmtree(str(dir_test))
+
+
+def test_missing_slash_count(setup_missing_slash):
+    assert len(list(putil.missing_slash_in_pkg(setup_missing_slash))) == 1
+
+
+def test_missing_slash_spec(setup_missing_slash):
+    for item in putil.missing_slash_in_pkg(setup_missing_slash):
+        assert item.suffix == '.pks'
+
+
 def test_walk_pkg_gen(setup_test_files):
     for pathObject in putil.walk_pkg_gen(setup_test_files):
         assert pathObject.suffix != '.txt'

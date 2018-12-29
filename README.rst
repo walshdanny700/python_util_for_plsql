@@ -20,7 +20,11 @@ Installing
 
 Usage
 ================
-The function walk_pkg_gen is a generator that yields the path and filename of any file
+
+walk_pkg_gen
+-------------------
+
+The function walk_pkg_gen is a generator that yields pathobject of any file
 that has the extensions pkb(package body) or pks(package specification).
 The following example is how to use walk_pkg_gen
 
@@ -33,6 +37,21 @@ The following example is how to use walk_pkg_gen
     for pathObject in walk_pkg_gen(directory)
         # use pathObject
 
+
+missing_slash_in_pkg
+----------------------------
+
+The function missing_slash_in_pkg is a generator that yields a pathobject of package files
+that are missing the slash '/' as last character in either package spec or package body.
+
+.. code:: python
+
+    from plsqlutil.plsql_util import missing_slash_in_pkg
+    import pathlib
+
+    directory = pathlib.Path.cwd()
+    for pathObject in missing_slash_in_pkg(directory)
+        # use pathObject
 
 License
 ================
