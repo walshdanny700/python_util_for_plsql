@@ -30,8 +30,13 @@ def setup_missing_slash(tmpdir):
     shutil.rmtree(str(dir_test))
 
 
-def test_missing_slash_in_pkg(setup_missing_slash):
+def test_missing_slash_count(setup_missing_slash):
     assert len(list(putil.missing_slash_in_pkg(setup_missing_slash))) == 1
+
+
+def test_missing_slash_spec(setup_missing_slash):
+    for item in putil.missing_slash_in_pkg(setup_missing_slash):
+        assert item.suffix == '.pks'
 
 
 def test_walk_pkg_gen(setup_test_files):
