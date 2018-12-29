@@ -1,5 +1,5 @@
 from plsqlutil import plsql_util as putil
-import os
+import pathlib
 import pytest
 import shutil
 
@@ -14,14 +14,13 @@ def setup_test_files(tmpdir):
     for name in test_filenames:
         file_name = dir_test / name
         file_name.write(str("content"))
-    yield str(dir_test)
+    yield pathlib.Path(dir_test)
     shutil.rmtree(str(dir_test))
 
 
 def test_walk_pkg_gen(setup_test_files):
-    for _, cur_file in putil.walk_pkg_gen(setup_test_files):
-        _, ext = os.path.splitext(cur_file)
-        assert ext != '.txt'
+    for pathObject in putil.walk_pkg_gen(setup_test_files):
+        assert pathObject.suffix != '.txt'
 
 
 def test_walk_pkg_gen_size(setup_test_files):
@@ -29,17 +28,15 @@ def test_walk_pkg_gen_size(setup_test_files):
 
 
 def test_walk_pkg_gen_ext(setup_test_files):
-    for _, cur_file in putil.walk_pkg_gen(setup_test_files):
-        _, ext = os.path.splitext(cur_file)
-        assert ext in ['.pks', '.pkb']
+    for pathObject in putil.walk_pkg_gen(setup_test_files):
+        assert pathObject.suffix in ['.pks', '.pkb']
 
 
 def test_walk_pkg_gen_file_name(setup_test_files):
-    for _, cur_file in putil.walk_pkg_gen(setup_test_files):
-        name, _ = os.path.splitext(cur_file)
-        assert name == 'test_pkg'
+    for pathObject in putil.walk_pkg_gen(setup_test_files):
+        assert pathObject.stem == 'test_pkg'
 
 
 def test_walk_root_gen(setup_test_files):
-    for root, _ in putil.walk_pkg_gen(setup_test_files):
-        assert root == str(setup_test_files)
+    for pathObject in putil.walk_pkg_gen(setup_test_files):
+        assert pathObject.parent == setup_test_files
