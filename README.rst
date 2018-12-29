@@ -27,10 +27,11 @@ The following example is how to use walk_pkg_gen
 .. code:: python
 
     from plsqlutil.plsql_util import walk_pkg_gen
+    import pathlib
 
-    directory = '.'
-    for path_string, filename in walk_pkg_gen(directory)
-        # use filename and path string
+    directory = pathlib.Path.cwd()
+    for pathObject in walk_pkg_gen(directory)
+        # use pathObject
 
 
 License
