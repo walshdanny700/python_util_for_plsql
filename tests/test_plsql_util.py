@@ -120,3 +120,14 @@ def test_commits_in_package_path_b(setup_package_with_commit):
 
     for pathObject in putil.commits_in_package(setup_package_with_commit):
         assert pathObject.stem not in ['package_body_b',  'exclude']
+
+
+def test_commits_in_package_expected_suffix(setup_package_with_commit):
+    '''
+       Description: GIVEN a package body
+                            WHEN package body has a commit
+                            THEN suffix is pkb
+    '''
+
+    for pathObject in putil.commits_in_package(setup_package_with_commit):
+        assert pathObject.suffix == '.pkb'
