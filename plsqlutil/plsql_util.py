@@ -28,3 +28,16 @@ def walk_pkg_body(pathObject):
 
     for f in pathObject.rglob(package_body):
         yield f
+
+
+def commits_in_package(pathObject):
+    '''
+       Description: The commit of transactions should be in the service layer.
+                            Any commits in the DB code makes it harder to test.
+   '''
+
+    COMMIT_STRING = 'commit;'
+
+    for package_body_file in walk_pkg_body(pathObject):
+        if COMMIT_STRING in package_body_file.read_text().lower():
+            yield package_body_file
