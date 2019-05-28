@@ -53,6 +53,23 @@ that are missing the slash '/' as last character in either package spec or packa
     for pathObject in missing_slash_in_pkg(directory)
         # use pathObject
 
+
+commits_in_package
+----------------------------
+
+The function commits_in_package is a generator that yields a path object of package body files
+that contain a commit in their code.
+
+.. code:: python
+
+    from plsqlutil.plsql_util import commits_in_package
+    import pathlib
+
+    directory = pathlib.Path.cwd()
+    for pathObject in commits_in_package(directory)
+        # use pathObject
+
+
 License
 ================
 This project is licensed under the MIT License
