@@ -18,3 +18,13 @@ def missing_slash_in_pkg(pathObject):
     for pkgFile in walk_pkg_gen(pathObject):
         if pkgFile.read_text().rstrip()[-1] != '/':
             yield pkgFile
+
+
+def walk_pkg_body(pathObject):
+    '''
+        Description: Yields pathobject that has file extension of pkb
+    '''
+    package_body = '*.pkb'
+
+    for f in pathObject.rglob(package_body):
+        yield f
