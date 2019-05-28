@@ -76,7 +76,7 @@ def test_walk_pkg_body(setup_test_files):
 def test_walk_pkg_body_happy_path(setup_test_files):
     '''
          Description: GIVEN walk_pkg_body WHEN it returns a pathObject
-                              THEN the suffix .pk
+                              THEN the suffix is .pkb
     '''
 
     for pathObject in putil.walk_pkg_body(setup_test_files):
