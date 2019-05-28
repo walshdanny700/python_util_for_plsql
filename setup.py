@@ -5,7 +5,7 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name="plsqlutil",
-    version="0.0.19",
+    version="0.0.20",
     author="Danny Walsh",
     author_email="walshdanny700@gmail.com",
     description="Python util function for plsql",
