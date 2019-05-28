@@ -119,4 +119,4 @@ def test_commits_in_package_path_b(setup_package_with_commit):
     '''
 
     for pathObject in putil.commits_in_package(setup_package_with_commit):
-        assert pathObject.stem not in ['test_pkg.pks',  'exclude.txt']
+        assert pathObject.stem not in ['package_body_b',  'exclude']
