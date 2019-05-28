@@ -41,7 +41,7 @@ def setup_package_with_commit(tmpdir):
     spec.write(str("content"))
     body = dir_test / test_filenames[1]
     body.write(str("commit; \n /"))
-    body_b = dir_test / test_filenames[1]
+    body_b = dir_test / test_filenames[3]
     body_b.write(str("content \n /"))
     yield pathlib.Path(dir_test)
     shutil.rmtree(str(dir_test))
