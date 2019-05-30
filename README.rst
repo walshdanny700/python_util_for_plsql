@@ -1,8 +1,8 @@
-plsqlutil
+sqlLinter
 =========================
 |build-status| |coverage| |docs| |pypi| |version|
 
-A utility module for working with PL/SQL
+A Linter tool for SQL
 
 Getting Started
 ================
@@ -16,7 +16,7 @@ Installing
 ================
 .. code:: python
 
-    pip install plsqlutil
+    pip install sqlLinter
 
 Usage
 ================
@@ -30,7 +30,7 @@ The following example is how to use walk_pkg_gen
 
 .. code:: python
 
-    from plsqlutil.plsql_util import walk_pkg_gen
+    from sqlLinter.plsql_util import walk_pkg_gen
     import pathlib
 
     directory = pathlib.Path.cwd()
@@ -46,7 +46,7 @@ that are missing the slash '/' as last character in either package spec or packa
 
 .. code:: python
 
-    from plsqlutil.plsql_util import missing_slash_in_pkg
+    from sqlLinter.plsql_util import missing_slash_in_pkg
     import pathlib
 
     directory = pathlib.Path.cwd()
@@ -62,7 +62,7 @@ that contain a commit in their code.
 
 .. code:: python
 
-    from plsqlutil.plsql_util import commits_in_package
+    from sqlLinter.plsql_util import commits_in_package
     import pathlib
 
     directory = pathlib.Path.cwd()
