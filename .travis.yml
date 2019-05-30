@@ -11,7 +11,7 @@ before_install:
     - pip install coveralls
 
 script:
-    - pytest --cov=plsqlutil
+    - pytest --cov=sqlLinter
     - coverage report --fail-under=80
 
 after_success:

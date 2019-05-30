@@ -1,4 +1,4 @@
-from plsqlutil import plsql_util as putil
+from sqlLinter import sqlLinter as lint
 import pathlib
 import pytest
 import shutil
@@ -48,35 +48,35 @@ def setup_package_with_commit(tmpdir):
 
 
 def test_missing_slash_count(setup_missing_slash):
-    assert len(list(putil.missing_slash_in_pkg(setup_missing_slash))) == 1
+    assert len(list(lint.missing_slash_in_pkg(setup_missing_slash))) == 1
 
 
 def test_missing_slash_spec(setup_missing_slash):
-    for item in putil.missing_slash_in_pkg(setup_missing_slash):
+    for item in lint.missing_slash_in_pkg(setup_missing_slash):
         assert item.suffix == '.pks'
 
 
 def test_walk_pkg_gen(setup_test_files):
-    for pathObject in putil.walk_pkg_gen(setup_test_files):
+    for pathObject in lint.walk_pkg_gen(setup_test_files):
         assert pathObject.suffix != '.txt'
 
 
 def test_walk_pkg_gen_size(setup_test_files):
-    assert len(list(putil.walk_pkg_gen(setup_test_files))) == 3
+    assert len(list(lint.walk_pkg_gen(setup_test_files))) == 3
 
 
 def test_walk_pkg_gen_ext(setup_test_files):
-    for pathObject in putil.walk_pkg_gen(setup_test_files):
+    for pathObject in lint.walk_pkg_gen(setup_test_files):
         assert pathObject.suffix in ['.pks', '.pkb']
 
 
 def test_walk_pkg_gen_file_name(setup_test_files):
-    for pathObject in putil.walk_pkg_gen(setup_test_files):
+    for pathObject in lint.walk_pkg_gen(setup_test_files):
         assert pathObject.stem in ['test_pkg', 'package_body_b']
 
 
 def test_walk_root_gen(setup_test_files):
-    for pathObject in putil.walk_pkg_gen(setup_test_files):
+    for pathObject in lint.walk_pkg_gen(setup_test_files):
         assert pathObject.parent == setup_test_files
 
 
@@ -86,7 +86,7 @@ def test_walk_pkg_body(setup_test_files):
                             THEN the suffix is not .txt or .pks
     '''
 
-    for pathObject in putil.walk_pkg_body(setup_test_files):
+    for pathObject in lint.walk_pkg_body(setup_test_files):
         assert pathObject.suffix not in ['.txt', '.pks']
 
 
@@ -96,7 +96,7 @@ def test_walk_pkg_body_happy_path(setup_test_files):
                               THEN the suffix is .pkb
     '''
 
-    for pathObject in putil.walk_pkg_body(setup_test_files):
+    for pathObject in lint.walk_pkg_body(setup_test_files):
         assert pathObject.suffix == '.pkb'
 
 
@@ -107,7 +107,7 @@ def test_commits_in_package_happy_path(setup_package_with_commit):
                             THEN yield the package file object
     '''
 
-    for pathObject in putil.commits_in_package(setup_package_with_commit):
+    for pathObject in lint.commits_in_package(setup_package_with_commit):
         assert pathObject.stem == 'test_pkg'
 
 
@@ -118,7 +118,7 @@ def test_commits_in_package_path_b(setup_package_with_commit):
                             THEN dont yield files that do not contain commit
     '''
 
-    for pathObject in putil.commits_in_package(setup_package_with_commit):
+    for pathObject in lint.commits_in_package(setup_package_with_commit):
         assert pathObject.stem not in ['package_body_b',  'exclude']
         assert pathObject.suffix not in ['.txt', '.pks']
 
@@ -130,5 +130,5 @@ def test_commits_in_package_expected_suffix(setup_package_with_commit):
                             THEN suffix is pkb
     '''
 
-    for pathObject in putil.commits_in_package(setup_package_with_commit):
+    for pathObject in lint.commits_in_package(setup_package_with_commit):
         assert pathObject.suffix == '.pkb'
