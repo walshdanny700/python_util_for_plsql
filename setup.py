@@ -5,10 +5,10 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name="sqlLinter",
-    version="0.0.22",
+    version="0.0.23",
     author="Danny Walsh",
     author_email="walshdanny700@gmail.com",
-    description="Python util function for plsql",
+    description="Linter tool for SQL packages written in Python",
     long_description=long_description,
     long_description_content_type="text/x-rst",
     url="https://github.com/walshdanny700/sqlLinter",
